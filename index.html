@@ -3,129 +3,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dos Reinos, Dos Llamados: La Batalla Espiritual</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <title>Dos Reinos: Elige Tu Reino, Elige Tu Rol</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlalDLyW/CjB4Q4Z4t0Q+jQfK8+t6r00qXv4+jP+16dK+L+4x4V+m+3+D+P+Z4a2c9g+y+4t3/q+3/p+S+6A+8/g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         /* Estilos CSS */
+        :root {
+            --color-primary: #3498db; /* Azul vibrante */
+            --color-secondary: #2c3e50; /* Azul oscuro */
+            --color-accent-god: #27ae60; /* Verde esperanza */
+            --color-accent-darkness: #e74c3c; /* Rojo peligro */
+            --color-light-bg: #f8faff; /* Fondo muy claro */
+            --color-dark-text: #333;
+            --color-light-text: #ecf0f1;
+            --font-heading: 'Lora', serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
         body {
-            font-family: 'Open Sans', sans-serif;
-            line-height: 1.7;
+            font-family: var(--font-body);
+            line-height: 1.8;
             margin: 0;
             padding: 0;
-            background-color: #f4f7f6;
-            color: #333;
+            background: linear-gradient(135deg, var(--color-light-bg) 0%, #e0e6ea 100%);
+            color: var(--color-dark-text);
+            scroll-behavior: smooth;
         }
+
         .header {
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            padding: 2.5em 0;
+            background: linear-gradient(to right, var(--color-secondary), var(--color-primary));
+            color: var(--color-light-text);
+            padding: 3em 0;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
         }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.05) 10%, transparent 80%);
+            animation: pulse 10s infinite alternate;
+        }
+        @keyframes pulse {
+            from { transform: scale(0.8); opacity: 0.7; }
+            to { transform: scale(1.2); opacity: 0.9; }
+        }
+
         .header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3em;
+            font-family: var(--font-heading);
+            font-size: 3.5em;
             margin-bottom: 0.2em;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
         }
         .header p {
-            font-size: 1.2em;
-            opacity: 0.9;
+            font-size: 1.3em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
         }
+
         .container {
-            max-width: 1000px;
-            margin: 2em auto;
-            padding: 0 1.5em;
+            max-width: 1100px;
+            margin: 2.5em auto;
+            padding: 0 2em;
         }
+
         .section {
-            background-color: #fff;
-            padding: 2em;
-            margin-bottom: 2em;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            padding: 2.5em;
+            margin-bottom: 2.5em;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
         }
         .section h2 {
-            font-family: 'Playfair Display', serif;
-            color: #2980b9;
-            font-size: 2.2em;
+            font-family: var(--font-heading);
+            color: var(--color-primary);
+            font-size: 2.5em;
             margin-top: 0;
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 0.5em;
-            margin-bottom: 1em;
+            padding-bottom: 0.6em;
+            margin-bottom: 1.5em;
             text-align: center;
+            position: relative;
+        }
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--color-primary);
+            margin: 0.5em auto 0;
+            border-radius: 2px;
         }
         .section h3 {
-            color: #2c3e50;
-            font-size: 1.6em;
-            margin-top: 1.8em;
-            margin-bottom: 0.8em;
+            font-family: var(--font-heading);
+            color: var(--color-secondary);
+            font-size: 1.8em;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            text-align: center; /* Centrar sub-títulos también */
         }
-        .section ul {
+        .section p {
+            margin-bottom: 1.2em;
+        }
+
+        .icon-list {
             list-style: none;
             padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8em; /* Espacio entre los elementos */
+            justify-content: center; /* Centrar los iconos */
         }
-        .section ul li {
-            background-color: #eaf3f8;
+        .icon-list li {
+            background-color: var(--color-light-bg);
             margin-bottom: 0.6em;
-            padding: 0.8em 1.2em;
-            border-left: 5px solid #3498db;
-            border-radius: 4px;
+            padding: 1em 1.5em;
+            border-left: 6px solid var(--color-primary);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            flex: 1 1 auto; /* Permite que los elementos crezcan y se adapten */
+            min-width: 280px; /* Ancho mínimo para cada elemento */
         }
-        .section ul li:last-child {
+        .icon-list li i {
+            margin-right: 12px;
+            color: var(--color-primary);
+            font-size: 1.3em;
+        }
+        .icon-list li:last-child {
             margin-bottom: 0;
         }
+
         .quote {
+            font-family: var(--font-heading);
             font-style: italic;
-            background-color: #d7e8f5;
-            padding: 1em 1.5em;
-            border-left: 5px solid #3498db;
-            margin: 1.5em 0;
-            border-radius: 4px;
-            color: #2c3e50;
+            background-color: #eaf3f8; /* Un tono más claro */
+            padding: 1.5em 2em;
+            border-left: 8px solid var(--color-primary);
+            margin: 2em 0;
+            border-radius: 8px;
+            color: var(--color-secondary);
+            font-size: 1.1em;
+            line-height: 1.6;
         }
-        .footer {
-            text-align: center;
-            padding: 1.5em 0;
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            margin-top: 3em;
+        .quote strong {
+            display: block;
+            margin-top: 0.5em;
+            text-align: right;
+            font-weight: 700;
             font-size: 0.9em;
         }
+
+        .footer {
+            text-align: center;
+            padding: 2em 0;
+            background-color: var(--color-secondary);
+            color: var(--color-light-text);
+            margin-top: 4em;
+            font-size: 0.95em;
+        }
+
         .comparison-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 2em;
+            gap: 2.5em;
         }
         .grid-item {
-            background-color: #fcfcfc;
-            padding: 1.5em;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-            border: 1px solid #eee;
+            background-color: #ffffff;
+            padding: 2em;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
         }
         .grid-item h3 {
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8em;
+            font-family: var(--font-heading);
+            font-size: 2em;
             margin-bottom: 1em;
-            padding-bottom: 0.5em;
-            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 0.8em;
+            border-bottom: 2px solid;
+            text-align: center;
         }
         .grid-item.kingdom-of-god h3 {
-            color: #27ae60; /* Verde para el Reino de Dios */
+            color: var(--color-accent-god);
+            border-color: var(--color-accent-god);
         }
         .grid-item.kingdom-of-darkness h3 {
-            color: #c0392b; /* Rojo para el Reino de la Oscuridad */
+            color: var(--color-accent-darkness);
+            border-color: var(--color-accent-darkness);
+        }
+        .grid-item ul {
+            list-style: none;
+            padding: 0;
         }
         .grid-item ul li {
-            background-color: #f7f7f7;
+            background-color: #fcfcfc;
+            margin-bottom: 0.8em;
+            padding: 0.9em 1.2em;
             border-left: 5px solid;
-            margin-bottom: 0.5em;
+            border-radius: 6px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: flex-start; /* Alinea los ítems al inicio */
+        }
+        .grid-item ul li i {
+            margin-right: 10px;
+            font-size: 1.1em;
+            line-height: inherit; /* Asegura que el icono tenga la misma altura que el texto */
         }
         .grid-item.kingdom-of-god ul li {
-            border-color: #2ecc71; /* Verde más claro */
+            border-color: var(--color-accent-god);
+        }
+        .grid-item.kingdom-of-god ul li i {
+            color: var(--color-accent-god);
         }
         .grid-item.kingdom-of-darkness ul li {
-            border-color: #e74c3c; /* Rojo más claro */
+            border-color: var(--color-accent-darkness);
+        }
+        .grid-item.kingdom-of-darkness ul li i {
+            color: var(--color-accent-darkness);
         }
 
         /* Responsive adjustments */
@@ -134,88 +243,88 @@
                 grid-template-columns: 1fr 1fr;
             }
             .section h2 {
-                text-align: left;
+                text-align: center; /* Mantenemos centrado para este título */
             }
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>Dos Reinos, Dos Llamados</h1>
-        <p>Entendiendo la Batalla Espiritual y Nuestro Papel</p>
+        <h1>Dos Reinos: Elige Tu Reino, Elige Tu Rol</h1>
+        <p>Una Batalla Espiritual que Define Tu Eternidad</p>
     </div>
 
     <div class="container">
         <div class="section">
-            <h2>La Existencia de Dos Reinos Opuestos</h2>
-            <p>La Biblia nos revela que la realidad espiritual no es neutral. Hay dos reinos fundamentales en conflicto: el glorioso Reino de Dios y el reino oscuro de las tinieblas, gobernado por el enemigo de nuestras almas, Satanás. Nuestra vida y nuestra fe se desarrollan dentro de este conflicto.</p>
-            <p class="quote">"Él nos libró del dominio de la oscuridad y nos trasladó al reino de su Hijo amado." - **Colosenses 1:13 (NVI)**</p>
+            <h2>La Realidad Ineludible: Dos Reinos en Conflicto</h2>
+            <p>La Biblia nos desvela una verdad profunda: no existe la neutralidad espiritual. Estamos inmersos en un conflicto cósmico entre dos reinos diametralmente opuestos: el glorioso **Reino de Dios** y el oscuro **reino de las tinieblas**, liderado por Satanás. Nuestra existencia y nuestra fe se desarrollan en el corazón de esta batalla.</p>
+            <p class="quote">"Él nos libró del dominio de la oscuridad y nos trasladó al reino de su Hijo amado." <strong>— Colosenses 1:13 (NVI)</strong></p>
         </div>
 
         <div class="comparison-grid">
             <div class="grid-item kingdom-of-god">
-                <h3>El Glorioso Reino de Dios</h3>
-                <p>El Reino de Dios es el dominio soberano de Dios, donde Su voluntad es obedecida y Su carácter es manifestado. Es un reino de:</p>
+                <h3><i class="fas fa-crown"></i> El Glorioso Reino de Dios</h3>
+                <p>El Reino de Dios es el dominio absoluto de nuestro Creador, donde Su voluntad se cumple perfectamente y Su carácter divino se manifiesta en toda su plenitud. Es un reino de:</p>
                 <ul>
-                    <li>**Luz y Verdad:** Disipa las tinieblas y el engaño.</li>
-                    <li>**Justicia y Santidad:** Donde la rectitud prevalece.</li>
-                    <li>**Amor y Paz:** El fundamento de todas las relaciones.</li>
-                    <li>**Gracia y Misericordia:** Ofreciendo perdón y redención.</li>
-                    <li>**Vida Eterna:** La promesa de Dios para Sus súbditos.</li>
-                    <li>**Libertad:** De la esclavitud del pecado y la muerte.</li>
-                    <li>**Autoridad de Cristo:** Jesús es el Rey supremo.</li>
+                    <li><i class="fas fa-lightbulb"></i> **Luz y Verdad:** Que disipa las tinieblas y el engaño.</li>
+                    <li><i class="fas fa-balance-scale"></i> **Justicia y Santidad:** Donde la rectitud de Dios prevalece.</li>
+                    <li><i class="fas fa-heart"></i> **Amor y Paz:** El fundamento de todas las relaciones verdaderas.</li>
+                    <li><i class="fas fa-hand-holding-heart"></i> **Gracia y Misericordia:** Ofreciendo perdón y redención inmerecida.</li>
+                    <li><i class="fas fa-infinity"></i> **Vida Eterna:** La promesa de Dios para Sus súbditos fieles.</li>
+                    <li><i class="fas fa-chains-broken"></i> **Libertad:** De la esclavitud del pecado y el poder de la muerte.</li>
+                    <li><i class="fas fa-cross"></i> **Autoridad de Cristo:** Jesús, nuestro Rey y Señor supremo.</li>
                 </ul>
-                <h3>Los Embajadores del Reino de Dios</h3>
-                <p>Somos llamados a ser representantes activos del Rey de reyes. Nuestra misión es llevar Su mensaje y establecer Su voluntad en la tierra.</p>
+                <h3><i class="fas fa-user-tie"></i> Los Embajadores del Reino de Dios</h3>
+                <p>Como creyentes, hemos sido llamados a ser **representantes activos** del Rey de reyes. Nuestra misión es llevar Su mensaje de reconciliación y establecer Su voluntad aquí en la tierra, impactando vidas para la eternidad.</p>
                 <ul>
-                    <li>**Identidad:** Hijos de Dios, trasladados del dominio de la oscuridad (Col. 1:13).</li>
-                    <li>**Mensaje:** La reconciliación con Dios a través de Cristo (2 Cor. 5:18-20).</li>
-                    <li>**Comportamiento:** Luz y sal del mundo, viviendo con integridad, amor y justicia (Mat. 5:13-16).</li>
-                    <li>**Misión:** Hacer discípulos, proclamar el evangelio a toda criatura (Mat. 28:19-20).</li>
-                    <li>**Poder:** El Espíritu Santo nos capacita para cumplir la misión.</li>
-                    <li>**Finalidad:** La gloria de Dios y la extensión de Su reino.</li>
+                    <li><i class="fas fa-id-card"></i> **Identidad:** Hijos de Dios, rescatados del dominio de la oscuridad (Col. 1:13).</li>
+                    <li><i class="fas fa-bullhorn"></i> **Mensaje:** La reconciliación con Dios a través del sacrificio de Cristo (2 Cor. 5:18-20).</li>
+                    <li><i class="fas fa-walking"></i> **Comportamiento:** Ser la luz y la sal del mundo, viviendo con integridad, amor y justicia (Mat. 5:13-16).</li>
+                    <li><i class="fas fa-globe"></i> **Misión:** Cumplir la Gran Comisión, haciendo discípulos y proclamando el evangelio a toda criatura (Mat. 28:19-20).</li>
+                    <li><i class="fas fa-bolt"></i> **Poder:** El Espíritu Santo nos capacita y nos da la fuerza para cumplir la misión.</li>
+                    <li><i class="fas fa-star"></i> **Finalidad:** La extensión de la gloria de Dios y el establecimiento de Su reino.</li>
                 </ul>
             </div>
 
             <div class="grid-item kingdom-of-darkness">
-                <h3>El Reino de las Tinieblas (del Enemigo)</h3>
-                <p>Este es el dominio espiritual de Satanás, el diablo, y sus fuerzas demoníacas. Es un reino de:</p>
+                <h3><i class="fas fa-mask"></i> El Reino de las Tinieblas (del Enemigo)</h3>
+                <p>Este es el dominio espiritual de Satanás, el diablo, y sus fuerzas demoníacas. Es un reino fundamentalmente opuesto a Dios, caracterizado por:</p>
                 <ul>
-                    <li>**Oscuridad y Engaño:** Donde la mentira es la moneda de cambio (Juan 8:44).</li>
-                    <li>**Pecado y Rebelión:** Oposición directa a la voluntad de Dios.</li>
-                    <li>**Odio y Caos:** Destrucción y división.</li>
-                    <li>**Esclavitud:** Las personas son cautivas a sus deseos y al pecado (Hechos 26:18).</li>
-                    <li>**Muerte Espiritual y Física:** El destino final de sus súbditos.</li>
-                    <li>**Tiranía:** Ejercida por el "príncipe de la potestad del aire" (Ef. 2:2).</li>
+                    <li><i class="fas fa-cloud"></i> **Oscuridad y Engaño:** Donde la mentira es la moneda corriente y la verdad es distorsionada (Juan 8:44).</li>
+                    <li><i class="fas fa-fist-raised"></i> **Pecado y Rebelión:** Oposición directa y constante a la voluntad soberana de Dios.</li>
+                    <li><i class="fas fa-skull-crossbones"></i> **Odio y Caos:** Promoviendo la división, la destrucción y la miseria.</li>
+                    <li><i class="fas fa-handcuffs"></i> **Esclavitud:** Las personas son cautivas de sus deseos pecaminosos y de las maquinaciones del enemigo (Hechos 26:18).</li>
+                    <li><i class="fas fa-times"></i> **Muerte Espiritual y Física:** El destino final de quienes permanecen bajo su influencia.</li>
+                    <li><i class="fas fa-splotch"></i> **Tiranía:** Ejercida por el "príncipe de la potestad del aire", que controla las mentes no regeneradas (Ef. 2:2).</li>
                 </ul>
-                <h3>Los Agentes (Embajadores) del Enemigo</h3>
-                <p>Aunque la Biblia no usa el término "embajador" para ellos, describe a quienes actúan como instrumentos del enemigo para promover su agenda de engaño y destrucción.</p>
+                <h3><i class="fas fa-user-secret"></i> Los Agentes (Embajadores) del Enemigo</h3>
+                <p>Aunque la Biblia no usa el término "embajador" para ellos, sí describe a quienes, consciente o inconscientemente, actúan como **instrumentos del enemigo**, promoviendo su agenda de engaño y destrucción.</p>
                 <ul>
-                    <li>**Identidad:** "Hijos de desobediencia" (Ef. 2:2), o quienes hacen la voluntad del diablo (Juan 8:44).</li>
-                    <li>**Mensaje:** Mentiras, falsas doctrinas, negación de Cristo (2 Ped. 2:1, 1 Jn. 2:18-19).</li>
-                    <li>**Comportamiento:** Engaño, división, maldad, destrucción (2 Tim. 3:13, 1 Ped. 5:8).</li>
-                    <li>**Misión:** Desviar a las personas de la verdad, destruir la fe, oponerse a Dios.</li>
-                    <li>**Poder:** El engaño y la influencia espiritual maligna.</li>
-                    <li>**Finalidad:** La separación de Dios y la condenación.</li>
+                    <li><i class="fas fa-fingerprint"></i> **Identidad:** "Hijos de desobediencia" (Ef. 2:2) o aquellos que hacen la voluntad del diablo (Juan 8:44).</li>
+                    <li><i class="fas fa-comments-slash"></i> **Mensaje:** Mentiras, falsas doctrinas, negación de Cristo y Su obra (2 Ped. 2:1, 1 Jn. 2:18-19).</li>
+                    <li><i class="fas fa-mask"></i> **Comportamiento:** Engaño sutil, división, maldad, y acciones destructivas (2 Tim. 3:13, 1 Ped. 5:8).</li>
+                    <li><i class="fas fa-meteor"></i> **Misión:** Desviar a las personas de la verdad, destruir la fe, y oponerse a todo lo que es de Dios.</li>
+                    <li><i class="fas fa-fire"></i> **Poder:** El engaño sutil, la influencia espiritual maligna y el poder de la oscuridad.</li>
+                    <li><i class="fas fa-dizzy"></i> **Finalidad:** La separación de Dios, la esclavitud al pecado y la condenación eterna.</li>
                 </ul>
             </div>
         </div>
 
         <div class="section">
-            <h2>Nuestra Elección y Responsabilidad</h2>
-            <p>La existencia de estos dos reinos nos confronta con una elección ineludible: ¿a qué reino pertenecemos? Como creyentes, hemos sido librados del dominio de la oscuridad y trasladados al Reino de Cristo. Nuestra responsabilidad como Sus embajadores es clara:</p>
-            <ul>
-                <li>**Discernir:** Reconocer las tácticas del reino de las tinieblas.</li>
-                <li>**Resistir:** Mantenernos firmes contra sus engaños (Santiago 4:7).</li>
-                <li>**Proclamar:** Extender la luz y la verdad del Reino de Dios.</li>
-                <li>**Vivir:** Manifestar el carácter de Cristo en todo lo que hacemos.</li>
+            <h2>Nuestra Elección y Nuestra Responsabilidad</h2>
+            <p>La existencia de estos dos reinos nos coloca frente a una elección crucial y personal: ¿a qué reino pertenecemos? Como creyentes en Cristo, hemos sido liberados del dominio de la oscuridad y trasladados gloriosamente al Reino de Su Hijo amado. Nuestra responsabilidad como Sus **embajadores** es ineludible:</p>
+            <ul class="icon-list">
+                <li><i class="fas fa-eye"></i> **Discernir:** Reconocer las tácticas sutiles y abiertas del reino de las tinieblas.</li>
+                <li><i class="fas fa-shield-alt"></i> **Resistir:** Mantenernos firmes en la fe contra sus engaños y ataques (Santiago 4:7).</li>
+                <li><i class="fas fa-share-alt"></i> **Proclamar:** Extender con audacia la luz y la verdad del Reino de Dios a un mundo en tinieblas.</li>
+                <li><i class="fas fa-church"></i> **Vivir:** Manifestar el carácter de Cristo en cada área de nuestra vida, siendo un testimonio vivo.</li>
             </ul>
-            <p class="quote">"Porque no tenemos lucha contra sangre y carne, sino contra principados, contra potestades, contra los gobernadores de las tinieblas de este siglo, contra huestes espirituales de maldad en las regiones celestes." - **Efesios 6:12 (RV60)**</p>
+            <p class="quote">"Porque nuestra lucha no es contra seres humanos, sino contra poderes, contra autoridades, contra los gobernantes de estas tinieblas y contra fuerzas espirituales malignas en las regiones celestiales." <strong>— Efesios 6:12 (NVI)</strong></p>
         </div>
     </div>
 
     <div class="footer">
-        <p>&copy; 2025. Predicación: Dos Reinos, Dos Llamados.</p>
+        <p>&copy; 2025. Predicación: Dos Reinos, Dos Llamados. Todos los derechos reservados.</p>
     </div>
 </body>
 </html>
